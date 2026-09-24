@@ -214,6 +214,13 @@ async def main():
     global last_alert_key
 
     log(f"Starting Bupa monitor for {CITY}, checking every {CHECK_EVERY_SECONDS}s.")
+
+    send_telegram(
+    "✅ Bupa Monitor is online\n\n"
+    f"Location: {CITY}\n"
+    f"Checking every {CHECK_EVERY_SECONDS // 60} minutes."
+)
+    
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         log("WARNING: Telegram is not configured; no phone alerts will be sent.")
 
